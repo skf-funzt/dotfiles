@@ -1,0 +1,139 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+zstyle ':omz:update' mode auto
+
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+source /usr/share/zsh/share/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle archlinux
+antigen bundle artisan
+antigen bundle adb
+antigen bundle aliases
+antigen bundle alias-finder
+antigen bundle command-not-found
+antigen bundle common-aliases
+#antigen bundle chucknorris
+antigen bundle colored-man-pages
+antigen bundle colorize
+antigen bundle git
+antigen bundle git-extras
+antigen bundle git-flow
+antigen bundle gradle
+antigen bundle gradle-completion
+antigen bundle history
+antigen bundle npm
+antigen bundle webyneter/docker-aliases.git
+antigen bundle yarn
+antigen bundle docker
+antigen bundle docker-compose
+#antigen bundle dotenv
+antigen bundle emoji
+antigen bundle flutter
+antigen bundle frontend-search
+antigen bundle gitignore
+antigen bundle nvm
+antigen bundle systemd
+#antigen bundle thefuck
+antigen bundle zsh-interactive-cd
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Load the theme.
+antigen theme agnoster
+#antigen theme agnoster-fcamblor
+
+# Tell Antigen that you're done.
+antigen apply
+
+# Support for dot command
+export PATH=".:$PATH"
+
+# aliases
+alias adhu="~/Android/Sdk/extras/google/auto/desktop-head-unit"
+
+#Exports for Flutter
+export PATH=$PATH:~/flutter/bin
+
+#Exports for Go
+export GOPATH=~/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
+# Allow this user to install packages globally
+PATH="$HOME/.node_modules/bin:$PATH"
+PATH="$HOME/.yarn/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# Add ruby gems to the path
+export PATH=$PATH:/root/.gem/ruby/2.6.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+
+# Export pub bin
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/.config/composer/vendor/bin"
+export PATH="$PATH":"$HOME/flutter/.pub-cache/bin" #For Linux
+# Anaconda Python tool
+export PATH="$PATH":"/opt/anaconda/bin" #For Linux
+export PATH="$PATH":"$HOME/.pub-cache/bin" #For macOS
+# Android SDK
+export PATH="$PATH":"$HOME/Library/Android/sdk/platform-tools" #For macOS
+export PATH="$PATH":"$HOME/Library/Android/sdk/emulator" #For macOS
+export PATH="$PATH":"$HOME/Android/Sdk/platform-tools" #For macOS
+export PATH="$PATH":"$HOME/Android/Sdk/emulator" #For macOS
+# Flutter Chrome executable path
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable #for Linux
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/default
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Gradle
+## Enable completion cache
+zstyle ':completion:*' use-cache on
+
+# set default shell to zsh
+set -g default-command /bin/zsh
+set -g default-shell /bin/zsh
+
+# nvm initialization
+unset npm_config_prefix
+source /usr/share/nvm/init-nvm.sh
+
+# TODO/FIXME: Does every byobu window start a new shell?
+# Start byobu (terminal multiplexer)
+# byobu
+
+function reload() {
+  source ~/.zshrc && zsh
+}
+
+# Load asdf completion
+. /opt/asdf-vm/asdf.sh
+
+# other asdf related things
+# Set JAVA_HOME
+. ~/.asdf/plugins/java/set-java-home.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
