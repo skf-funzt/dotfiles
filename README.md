@@ -1,6 +1,6 @@
 # Bienvenue chezmoi
 
-This is my personal [chezmoi](https://www.chezmoi.io/) configuration.
+This is my [chezmoi](https://www.chezmoi.io/) configuration.
 
 It is using the `just` command to manage the configuration.
 But basically, all can be applied using `chezmoi` directly.
@@ -8,5 +8,5 @@ But basically, all can be applied using `chezmoi` directly.
 ## Quick start
 
 ```zsh
-chezmoi init https://github.com/skf-funzt/chezmoi --apply
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply skf-funzt
 ```

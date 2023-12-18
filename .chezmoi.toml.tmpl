@@ -1,0 +1,7 @@
+# Change the temporary directory used by the run command.
+# ref - https://www.chezmoi.io/user-guide/frequently-asked-questions/troubleshooting/#chezmoi-reports-chezmoi-forkexec-tmpxxxxxxxxxxxx-exec-format-error-when-executing-a-template-script
+scriptTempDir = "~/tmp"
+
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/.install-password-manager.sh"
+
