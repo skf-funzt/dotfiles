@@ -6,3 +6,6 @@ dry-run:
 
 apply:
     chezmoi apply
+
+clear:
+    rm -rf ~/.config/chezmoi
