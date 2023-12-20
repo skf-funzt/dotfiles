@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Apply configuration
-aconfmgr apply
+./tmp/aconfmgr-master apply
