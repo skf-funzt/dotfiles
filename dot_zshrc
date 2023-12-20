@@ -14,7 +14,7 @@ setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
-source /usr/share/zsh/share/antigen.zsh
+source ~/.local/share/zsh/share/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -91,14 +91,17 @@ export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.config/composer/vendor/bin"
 export PATH="$PATH":"$HOME/flutter/.pub-cache/bin" #For Linux
+
 # Anaconda Python tool
 export PATH="$PATH":"/opt/anaconda/bin" #For Linux
 export PATH="$PATH":"$HOME/.pub-cache/bin" #For macOS
+
 # Android SDK
 export PATH="$PATH":"$HOME/Library/Android/sdk/platform-tools" #For macOS
 export PATH="$PATH":"$HOME/Library/Android/sdk/emulator" #For macOS
 export PATH="$PATH":"$HOME/Android/Sdk/platform-tools" #For macOS
 export PATH="$PATH":"$HOME/Android/Sdk/emulator" #For macOS
+
 # Flutter Chrome executable path
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable #for Linux
 
@@ -132,7 +135,8 @@ function reload() {
 # other asdf related things
 # Set JAVA_HOME
 . ~/.asdf/plugins/java/set-java-home.zsh
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# Powerlevel 10k theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

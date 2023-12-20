@@ -1,0 +1,26 @@
+[user]
+	email = stephan.koglin-fischer@funzt.dev
+	name = Stephan Koglin-Fischer
+[alias]
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+[init]
+	defaultBranch = main
+
+[github]
+user = "skf-funzt"
+
+[core]
+[pull]
+	rebase = true
+[safe]
+	directory = /opt/flutter
+	directory = /home/stephan/projects/sae/course-php-beginner/php
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

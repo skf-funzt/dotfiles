@@ -9,3 +9,6 @@ apply:
 
 clear:
     rm -rf ~/.config/chezmoi
+
+delete-target:
+    rm -i $(chezmoi managed)

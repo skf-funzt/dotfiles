@@ -5,7 +5,7 @@ if command -v yay &> /dev/null
 then
     echo "Yay is installed, installing dashlane-cli-git..."
     # Install aconfmgr for Arch configuration management
-    yay -Syu --needed --noconfirm dashlane-cli-git
+    yay -Sy --needed --noconfirm dashlane-cli-git
     # Login to Dashlane
     dcli sync &
     # Wait for Dashlane to finish syncing
