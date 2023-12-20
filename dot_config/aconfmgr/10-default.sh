@@ -22,4 +22,3 @@ AddPackage ttf-firacode-nerd # Patched font Fira (Fura) Code from nerd fonts lib
 AddPackage ttf-roboto # Google's signature family of fonts
 AddPackage noto-fonts # Google Noto TTF fonts
 AddPackage noto-fonts-cjk # Google Noto CJK fonts
-
