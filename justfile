@@ -12,3 +12,6 @@ clear:
 
 delete-target:
     rm -i $(chezmoi managed)
+
+purge-all: delete-target clear
+    chezmoi purge
