@@ -1,2 +1,1 @@
-# Ignore all
-IgnorePath '/'
+IgnorePath '/*' # Ignore the root path
