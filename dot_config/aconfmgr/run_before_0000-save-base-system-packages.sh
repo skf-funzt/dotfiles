@@ -27,10 +27,10 @@ echo "IgnorePath /" > ./config/00-ignore-root-path.sh
 ./aconfmgr save
 
 # Move the file
-mv ./config/99-unsorted.sh ./config/01-ignore-base-system-packages.sh
+mv ./config/99-unsorted.sh ./config/01-base-packages.sh
 
 # Replace 'AddPackage' with 'IgnorePackage'
-sed -i 's/AddPackage/IgnorePackage/g' ./config/01-ignore-base-system-packages.sh
+# sed -i 's/AddPackage/IgnorePackage/g' ./config/01-base-packages.sh
 
 # Copy the file to dot_config/aconfmgr
-cp ./config/01-ignore-base-system-packages.sh ../../
+cp ./config/01-base-packages.sh ../../
