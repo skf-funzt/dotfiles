@@ -1,6 +1,6 @@
 AddPackage yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.
 AddPackage --foreign trizen # Trizen AUR Package Manager: lightweight pacman wrapper and AUR helper.
-AddPackage --foreign paru # Feature packed AUR helper
+AddPackage --foreign paru-bin # Feature packed AUR helper
 
 AddPackage --foreign antigen # A plugin manager for zsh, inspired by oh-my-zsh and vundle.
 

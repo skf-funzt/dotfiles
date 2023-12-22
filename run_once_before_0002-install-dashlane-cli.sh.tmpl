@@ -1,43 +1,58 @@
 #!/bin/sh
+
+# Define a function to handle the interrupt signal
+handle_interrupt() {
+    printf "\nLikely `dcli sync` was interrupted. Continuing with the script. Please sync with the Dashlane CLI manually and re-run `chezmoi init`\n"
+}
+
+# Use trap to catch the interrupt signal and call the handle_interrupt function
+trap handle_interrupt INT
+
 # Check if yay is installed
 if
-    command -v yay &
-    >/dev/null
+    command -v yay &>/dev/null
 then
-    printf "Yay is installed, installing dashlane-cli-git..."
-    # Install aconfmgr for Arch configuration management
-    yay -Sy --needed --noconfirm dashlane-cli-git
-    # Check if the Dashlane CLI is installed, if not exit
-    if
-        command -v dcli &
-        >/dev/null
-    then
-        printf "Dashlane CLI is installed, continuing..."
-    else
-        printf "Dashlane CLI is not installed, exiting..."
-        exit 1
-    fi
-
     {{ if eq .initDashlane "true" }}
-        # Prompt the user for their Dashlane credentials
-        printf "\n\nPlease enter your Dashlane credentials:\n\n"
-        read -p "Email: " dashlane_email
-        # Read the password in a secure manner
-        read -s -p "Password: " dashlane_password
-        printf "\n"
-        read -p "OTP: " dashlane_otp
-        # Pipe the credentials as one string each as newline into the Dashlane CLI
-        # The order to pass is email, OTP, password
-        {
-            echo "$dashlane_email"
-            sleep 1
-            echo "$dashlane_otp"
-            sleep 1
-            echo "$dashlane_password"
-        } | dcli configure save-master-password true
+
+        printf "Yay is installed, installing dashlane-cli-git..."
+        # Install aconfmgr for Arch configuration management
+        yay -Sy --needed --noconfirm dashlane-cli-git
+        # Check if the Dashlane CLI is installed, if not exit
+        if
+            command -v dcli &>/dev/null
+        then
+            printf "Dashlane CLI is installed, continuing..."
+        else
+            printf "Dashlane CLI is not installed, exiting..."
+            exit 1
+        fi
+
+        # Run dcli sync and check its exit status
         dcli sync
+        if [ $? -eq 0 ]
+        then
+            printf "dcli sync was successful, no need to enter credentials.\n"
+        else
+            # Prompt the user for their Dashlane credentials
+            printf "\n\nPlease enter your Dashlane credentials:\n\n"
+            read -p "Email: " dashlane_email
+            # Read the password in a secure manner
+            read -s -p "Password: " dashlane_password
+            printf "\n"
+            read -p "OTP: " dashlane_otp
+            # Pipe the credentials as one string each as newline into the Dashlane CLI
+            # The order to pass is email, OTP, password
+            {
+                echo "$dashlane_email"
+                sleep 1
+                echo "$dashlane_otp"
+                sleep 1
+                echo "$dashlane_password"
+            } | dcli configure save-master-password true
+            dcli sync
+        fi
     {{ else }}
-        echo "Skipping Dashlane CLI initialisation..."
+        echo "Skipping Dashlane CLI installation and initialisation..."
     {{ end }}
 
 else
