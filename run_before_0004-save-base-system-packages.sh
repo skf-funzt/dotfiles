@@ -24,7 +24,7 @@ mkdir -p ./.config
 printf "IgnorePath '/*'" > .config/00-ignore-root-path.sh
 
 # Run aconfmgr
-.tmp/aconfmgr save
+.tmp/aconfmgr-master/aconfmgr save
 
 # Move the file
 mv .config/99-unsorted.sh .config/01-base-packages.sh
