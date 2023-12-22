@@ -20,8 +20,8 @@ cd ./.tmp/aconfmgr-master
 
 # Make a config directory
 mkdir -p ./config
-# Echo to ignore the root path into a .sh file
-echo "IgnorePath /" > ./config/00-ignore-root-path.sh
+# printf to ignore the root path into a .sh file
+printf "#!/bin/bash\nIgnorePath /" > ./config/00-ignore-root-path.sh
 
 # Run aconfmgr
 ./aconfmgr save
@@ -33,4 +33,4 @@ mv ./config/99-unsorted.sh ./config/01-base-packages.sh
 # sed -i 's/AddPackage/IgnorePackage/g' ./config/01-base-packages.sh
 
 # Copy the file to dot_config/aconfmgr
-cp ./config/01-base-packages.sh ../../
+cp ./config/01-base-packages.sh ./01-base-packages.sh 
