@@ -21,7 +21,7 @@ cd ./.tmp/aconfmgr-master
 # Make a config directory
 mkdir -p ./config
 # printf to ignore the root path into a .sh file
-printf "#!/bin/bash\nIgnorePath /" > ./config/00-ignore-root-path.sh
+printf "IgnorePath '/*'" > ./config/00-ignore-root-path.sh
 
 # Run aconfmgr
 ./aconfmgr save
