@@ -16,18 +16,21 @@ unzip -o ./.tmp/master.zip -d ./.tmp
 rm ./.tmp/master.zip
 
 # Change directory to aconfmgr-master
-# cd ./.tmp/aconfmgr-master
+cd ./.tmp/aconfmgr-master
 
 # Make a config directory
-mkdir -p .config/aconfmgr
+mkdir -p .config
 # printf to ignore the root path into a .sh file
-printf "IgnorePath '/*'" > .config/aconfmgr/00-ignore-root-path.sh
+printf "IgnorePath '/*'" > .config/00-ignore-root-path.sh
+
+# Update the package database
+sudo pacman -Sy
 
 # Run aconfmgr
-.tmp/aconfmgr-master/aconfmgr save
+./aconfmgr save -c .config
 
 # Move the file
-mv .config/aconfmgr/99-unsorted.sh .config/aconfmgr/01-base-packages.sh
+mv .config/99-unsorted.sh ~/.config/aconfmgr/01-base-packages.sh
 
 # Replace 'AddPackage' with 'IgnorePackage'
 # sed -i 's/AddPackage/IgnorePackage/g' .config/aconfmgr/01-base-packages.sh
