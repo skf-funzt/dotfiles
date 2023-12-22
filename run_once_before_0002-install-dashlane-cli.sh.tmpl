@@ -18,7 +18,7 @@ then
         exit 1
     fi
 
-    {{- if .initDashlane -}}
+    {{- if eq .initDashlane "true" -}}
     # Prompt the user for their Dashlane credentials
     printf "\n\nPlease enter your Dashlane credentials:\n\n"
     read -p "Email: " dashlane_email

@@ -1,4 +1,4 @@
-{{- if .initDashlane -}}
+{{- if eq .initDashlane "true" -}}
   # Retrieve private ssh key from Dashlane
   {{ dashlaneNote "google_compute_engine" }}
 {{- end -}}
