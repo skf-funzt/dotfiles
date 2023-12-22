@@ -1,1 +1,4 @@
-{{ dashlaneNote "aur" }}
+{{- if .initDashlane -}}
+  # Retrieve private ssh key from Dashlane
+  {{ dashlaneNote "aur" }}
+{{- end -}}

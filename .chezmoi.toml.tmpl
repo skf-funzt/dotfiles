@@ -1,3 +1,8 @@
+
+{{- $initDashlane := promptBool "Initialise Dashlane CLI?" -}}
+
+[data]
+    initDashlane = {{ $initDashlane | quote }}
 [edit]
     command = "code"
     args = ["--wait"]
