@@ -19,7 +19,7 @@ rm ./.tmp/master.zip
 # cd ./.tmp/aconfmgr-master
 
 # Make a config directory
-mkdir -p ./.config
+mkdir -p .config/aconfmgr
 # printf to ignore the root path into a .sh file
 printf "IgnorePath '/*'" > .config/aconfmgr/00-ignore-root-path.sh
 
