@@ -18,19 +18,19 @@ rm ./.tmp/master.zip
 # Change directory to aconfmgr-master
 cd ./.tmp/aconfmgr-master
 
-# MAke a config directory
-mkdir -p ./config
+# Make a config directory
+mkdir -p ~/./config
 # Echo to ignore the root path into a .sh file
-echo "IgnorePath /" > ./config/00-ignore-root-path.sh
+echo "IgnorePath /" > ~/./config/00-ignore-root-path.sh
 
 # Run aconfmgr
 ./aconfmgr save
 
 # Move the file
-mv ./config/99-unsorted.sh ./config/01-base-packages.sh
+mv ~/./config/99-unsorted.sh ~/./config/01-base-packages.sh
 
 # Replace 'AddPackage' with 'IgnorePackage'
-# sed -i 's/AddPackage/IgnorePackage/g' ./config/01-base-packages.sh
+# sed -i 's/AddPackage/IgnorePackage/g' ~/./config/01-base-packages.sh
 
 # Copy the file to dot_config/aconfmgr
-cp ./config/01-base-packages.sh ../../
+cp ~/./config/01-base-packages.sh ../../

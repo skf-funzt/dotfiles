@@ -18,25 +18,27 @@ then
         exit 1
     fi
 
-    {{- if eq .initDashlane "true" -}}
-    # Prompt the user for their Dashlane credentials
-    printf "\n\nPlease enter your Dashlane credentials:\n\n"
-    read -p "Email: " dashlane_email
-    # Read the password in a secure manner
-    read -s -p "Password: " dashlane_password
-    printf "\n"
-    read -p "OTP: " dashlane_otp
-    # Pipe the credentials as one string each as newline into the Dashlane CLI
-    # The order to pass is email, OTP, password
-    {
-        echo "$dashlane_email"
-        sleep 1
-        echo "$dashlane_otp"
-        sleep 1
-        echo "$dashlane_password"
-    } | dcli configure save-master-password true
-    dcli sync
-    {{- end -}}
+    {{ if eq .initDashlane "true" }}
+        # Prompt the user for their Dashlane credentials
+        printf "\n\nPlease enter your Dashlane credentials:\n\n"
+        read -p "Email: " dashlane_email
+        # Read the password in a secure manner
+        read -s -p "Password: " dashlane_password
+        printf "\n"
+        read -p "OTP: " dashlane_otp
+        # Pipe the credentials as one string each as newline into the Dashlane CLI
+        # The order to pass is email, OTP, password
+        {
+            echo "$dashlane_email"
+            sleep 1
+            echo "$dashlane_otp"
+            sleep 1
+            echo "$dashlane_password"
+        } | dcli configure save-master-password true
+        dcli sync
+    {{ else }}
+        echo "Skipping Dashlane CLI initialisation..."
+    {{ end }}
 
 else
     echo "Yay is not installed. Please install it and run this script again."
