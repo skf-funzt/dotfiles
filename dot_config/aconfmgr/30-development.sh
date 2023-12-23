@@ -31,4 +31,4 @@ AddPackage sqlitebrowser # SQLite Database browser is a light GUI editor for SQL
 AddPackage --foreign insomnia-bin # API Client and Design Platform for GraphQL and REST
 AddPackage --foreign stoplight-studio-appimage # The modern editor for API Architects and Technical Writers.
 AddPackage github-cli # The GitHub CLI
-AddPackage --foreign github-copilot-cli # A CLI experience for letting GitHub Copilot help you on the command line
+#AddPackage --foreign github-copilot-cli # A CLI experience for letting GitHub Copilot help you on the command line

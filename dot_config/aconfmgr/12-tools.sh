@@ -1,6 +1,6 @@
 # Tools
 AddPackage --foreign obinskit # ObinsKit for Anne Pro and Anne Pro 2
-AddPackage --foreign grub-customizer-git # A graphical grub2 settings manager (git version)
+#AddPackage --foreign grub-customizer-git # A graphical grub2 settings manager (git version)
 AddPackage neovim # Fork of Vim aiming to improve user experience, plugins, and GUIs
 AddPackage --foreign nbfc-linux # Lightweight C port of NoteBook FanControl (no Mono required)
 AddPackage powertop # A tool to diagnose issues with power consumption and power management

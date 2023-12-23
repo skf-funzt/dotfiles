@@ -27,9 +27,11 @@ printf "IgnorePath '/*'" > .config/00-ignore-root-path.sh
 sudo pacman -Sy
 
 # Run aconfmgr
+mkdir -p ~/.config/aconfmgr
 ./aconfmgr save -c .config
 
 # Move the file
+mkdir -p ~/.config/aconfmgr
 mv .config/99-unsorted.sh ~/.config/aconfmgr/01-base-packages.sh
 
 # Replace 'AddPackage' with 'IgnorePackage'

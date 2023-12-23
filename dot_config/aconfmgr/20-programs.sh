@@ -18,10 +18,10 @@ AddPackage gimp # GNU Image Manipulation Program
 AddPackage peek # Simple screen recorder with an easy to use interface
 AddPackage obs-studio # Free, open source software for live streaming and recording
 AddPackage kdenlive # A non-linear video editor for Linux using the MLT video framework
-AddPackage --foreign obs-streamfx # Bring your stream back to life with modern effects!
+#AddPackage --foreign obs-streamfx # Bring your stream back to life with modern effects!
 
 # Messanger
-AddPackage --foreign slack-desktop # Slack Desktop (Beta) for Linux
+#AddPackage --foreign slack-desktop # Slack Desktop (Beta) for Linux
 AddPackage signal-desktop # Signal Private Messenger for Linux
 
 
